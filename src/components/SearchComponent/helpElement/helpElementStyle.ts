@@ -8,7 +8,7 @@ export const useStyles = makeStyles(createStyles({
         cursor: "pointer",
         marginTop: "1%",
         marginBottom: "1%",
-        paddingBottom:"2%",
+        paddingBottom:"1%",
         paddingTop:"1%",
         paddingLeft: "3%",
         paddingRight:"3%",

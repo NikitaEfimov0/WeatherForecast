@@ -11,7 +11,10 @@ export const useStyles = makeStyles(createStyles({
         border: `1.2px solid ${mainTheme.palette.primary.main}`,
         borderRadius:"20px",
         [mainTheme.breakpoints.down("sm")]:{
-
+            // paddingLeft:"5%",
+            // paddingRight:"5%",
+            justifyContent: "space-evenly",
+            alignItems: "center",
             flexDirection:"row",
             height:"35%",
             width:"100%",

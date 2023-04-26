@@ -1,5 +1,6 @@
 import {useStyles} from "./ForecastElementComponentStyle";
 import {useEffect, useState} from "react";
+import {CircularProgress} from "@material-ui/core";
 
 export default function ForecastElementComponent(props:{children:{date:string, icon:string, min:number, max:number}}){
 
@@ -25,7 +26,7 @@ export default function ForecastElementComponent(props:{children:{date:string, i
 
     return <div className={classes.forecastBox}>
         <span>{dateInReadableFormat}</span>
-        <img src = {icon} alt={""}/>
-        <span>{`${props.children.min} / ${props.children.max}`}</span>
+        {icon!==""?<img src = {icon} alt={""}/>:<CircularProgress/>}
+        <span>{`${Math.floor(props.children.min)} / ${Math.floor(props.children.max)}`}</span>
     </div>
 }
