@@ -9,7 +9,7 @@ export const useStyles = makeStyles(createStyles({
         marginTop: "1%",
         marginBottom: "1%",
         paddingBottom:"2%",
-        paddingTop:"2%",
+        paddingTop:"1%",
         paddingLeft: "3%",
         paddingRight:"3%",
         fontSize: "14px",
