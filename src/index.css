@@ -16,6 +16,7 @@ body {
   background: url("../public/background_image.svg") no-repeat;
   background-size: cover;
   overflow-x: hidden;
+  overflow-y: hidden;
   display: block;
   justify-content: center;
   align-items: center;

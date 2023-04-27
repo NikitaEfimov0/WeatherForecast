@@ -30,26 +30,25 @@ export default function SearchComponent(){
 
 
         clearTimeout(timeoutId.current)
-        setIsLoading(true);
-        setNeedToShow(true)
+        if(!isLoading) {
+            setIsLoading(true);
+        }
+        if(!needToShow)
+            setNeedToShow(true)
+
 
         timeoutId.current = setTimeout(()=>{
-
-
             dispatch(getListOfCitiesByName(inputPrompts))
-            console.log("CITIES CHANGED: ", new Date().getSeconds())
-            // setIsLoading(false)
-
+            // clearTimeout(timerForDeactivatingLoading.current)
+            // timerForDeactivatingLoading.current = setTimeout(()=>{
+            //     setIsLoading(false)
+            // }, 300)
         }, 250)
 
     }, [inputPrompts])
 
     useEffect(()=>{
-
-        clearTimeout(timerForDeactivatingLoading.current)
-        timerForDeactivatingLoading.current = setTimeout(()=>{
-            setIsLoading(false)
-        }, 300)
+        setIsLoading(false)
     }, [cities])
 
     useEffect(()=>{

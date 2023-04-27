@@ -11,7 +11,7 @@ export const useStyles = makeStyles(createStyles({
         flexDirection:"column",
         color: mainTheme.palette.primary.main,
         width:"100%",
-        height:"25%"
+        height:"45%"
     },
 
     forecastInfoContainer:{
@@ -25,8 +25,8 @@ export const useStyles = makeStyles(createStyles({
             justifyContent:"flex-start",
 
         },
-        width:"100%",
-        height:"75%"
+        width:"90%",
+        height:"100%"
     },
     spanInfo:{
         fontSize:'2.0em',

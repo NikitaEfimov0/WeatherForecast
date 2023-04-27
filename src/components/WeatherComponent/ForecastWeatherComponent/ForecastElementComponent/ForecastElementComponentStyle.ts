@@ -17,7 +17,7 @@ export const useStyles = makeStyles(createStyles({
             alignItems: "center",
             flexDirection:"row",
             height:"35%",
-            width:"100%",
+            width:"90%",
             marginBottom:"1em",
         },
         height:"100%",

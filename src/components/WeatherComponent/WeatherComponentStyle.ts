@@ -7,7 +7,8 @@ export const useStyles = makeStyles(createStyles({
        alignItems:"center",
        height: "100%",
        width: "75%",
-       flexDirection: "column"
+       flexDirection: "column",
+       overflowY:"scroll",
    }
 
 
