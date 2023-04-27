@@ -14,6 +14,7 @@ export const useStyles = makeStyles(createStyles({
     searchBox:{
         width:"100%",
         display: "flex",
+        height:"2em",
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
