@@ -87,7 +87,7 @@ export default function SearchComponent(){
     </div>
         {isLoading?<CircularProgress color="primary" className = {classes.circularProgress} size={30}/>:
             <div className = {classes.inputHelp}>
-                {inputPrompts!=="" && needToShow?cities.map((city:CITY)=>(
+                {inputPrompts!=="" && needToShow && cities?cities.map((city:CITY)=>(
                     <HelpElement key={city.id}>{{value: city}}</HelpElement>
                 )):null}
             </div>}
