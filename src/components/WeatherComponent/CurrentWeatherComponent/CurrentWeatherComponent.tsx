@@ -65,6 +65,6 @@ export default function CurrentWeatherComponent(){
         </div>
     }
     else{
-        return (showPreloader?<CircularProgress/>:null)
+        return null
     }
 }

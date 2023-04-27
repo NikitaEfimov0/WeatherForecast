@@ -20,7 +20,7 @@ export const useStyles = makeStyles(createStyles({
             width:"90%",
             marginBottom:"1em",
         },
-        height:"100%",
+        height:"15em",
         width:"15%",
         background: "rgba(92, 104, 100, 0.62)",
         backdropFilter: "blur(40px)",
