@@ -4,9 +4,9 @@ import {mainTheme} from "../../../themes/mainTheme";
 export const useStyles = makeStyles(createStyles({
 
     forecastContainer:{
-        marginTop:"1.3em",
+        marginTop:"1.6em",
         display:"flex",
-        justifyContent:"center",
+        justifyContent:"space-around",
         alignItems:"flex-start",
         flexDirection:"column",
         color: mainTheme.palette.primary.main,
@@ -15,7 +15,6 @@ export const useStyles = makeStyles(createStyles({
     },
 
     forecastInfoContainer:{
-        marginTop:"1em",
         display:"flex",
         justifyContent:"space-evenly",
         alignItems:"center",
@@ -26,7 +25,7 @@ export const useStyles = makeStyles(createStyles({
 
         },
         width:"90%",
-        height:"100%"
+        height:"50%"
     },
     spanInfo:{
         fontSize:'2.0em',
