@@ -18,11 +18,20 @@ export const useStyles = makeStyles(createStyles({
             flexDirection:"row",
             height:"35%",
             width:"100%",
+            marginBottom:"1em",
         },
         height:"100%",
         width:"15%",
         background: "rgba(92, 104, 100, 0.62)",
         backdropFilter: "blur(40px)",
+    },
+
+    tempBox:{
+        [mainTheme.breakpoints.down("sm")]: {
+            width: "85px",
+        }
     }
+
+
 
 }))

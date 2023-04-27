@@ -23,6 +23,7 @@ export const useStyles = makeStyles(createStyles({
         [mainTheme.breakpoints.down("sm")]:{
             flexDirection:"column",
             justifyContent:"flex-start",
+
         },
         width:"100%",
         height:"75%"

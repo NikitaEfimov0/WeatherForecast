@@ -14,7 +14,7 @@ export const getListOfCitiesByName = (name:string)=>{
                 city_list_json = Object.assign([], json)
                 const pattern = new RegExp(`^\\s*${name}\\w*`);
                 dispatch(searchActions.getCityList(city_list_json
-                    .filter((city:CITY)=>pattern.test(city.name))
+                    .filter((city:CITY)=>(pattern.test(city.name.toLowerCase())||pattern.test(city.name.toUpperCase())))
                     .sort((a, b)=>a.name.localeCompare(b.name))
                     .slice(0, 5)
                     .filter((city:CITY, index:number, arr:CITY[]) =>

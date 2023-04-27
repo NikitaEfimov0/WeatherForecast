@@ -27,6 +27,6 @@ export default function ForecastElementComponent(props:{children:{date:string, i
     return <div className={classes.forecastBox}>
         <span>{dateInReadableFormat}</span>
         {icon!==""?<img src = {icon} alt={""}/>:<CircularProgress/>}
-        <span>{`${Math.floor(props.children.min)} / ${Math.floor(props.children.max)}`}</span>
+        <span className={classes.tempBox}>{`${Math.floor(props.children.min)} / ${Math.floor(props.children.max)}`}</span>
     </div>
 }
