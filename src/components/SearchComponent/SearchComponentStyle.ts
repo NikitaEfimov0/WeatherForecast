@@ -44,19 +44,20 @@ export const useStyles = makeStyles(createStyles({
         margin: "2%"
     },
     inputHelp:{
-        background:"transparent",
         display:"flex",
         justifyContent:"center",
         flexDirection:"column",
         width: "50%",
         flexGrow: 1,
         position:"absolute",
+        background: "rgba(0,0,0,0.39)",
+        borderRadius:"15px",
         // marginLeft: "4%",
         overflow:"auto",
         marginTop: "2.5em"
     },
     circularProgress:{
-        marginTop:"10%",
+        marginTop:"4em",
         position:"absolute",
     }
 }))

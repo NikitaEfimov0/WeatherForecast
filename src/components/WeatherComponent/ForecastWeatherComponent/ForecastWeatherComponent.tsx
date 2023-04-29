@@ -30,7 +30,7 @@ export default function ForecastWeatherComponent(){
             setShowPreloader(true)
         }
         else{
-            setShowPreloader(false)
+            setShowPreloader(true)
         }
     }, [currentCity])
 

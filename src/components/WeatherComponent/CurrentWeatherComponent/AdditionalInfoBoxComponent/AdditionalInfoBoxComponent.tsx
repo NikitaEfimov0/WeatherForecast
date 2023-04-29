@@ -1,7 +1,7 @@
 import React from "react";
 import {useStyles} from "./AdditionalInfoBoxComponentStyle";
 
-export default function AdditionalInfoBoxComponent(props:{children:{name:string, value:number}}){
+export default function AdditionalInfoBoxComponent(props:{children:{name:string, value:string}}){
     const classes = useStyles()
 
     return <div className={classes.box}>

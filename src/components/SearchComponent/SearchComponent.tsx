@@ -11,6 +11,10 @@ import {getWeatherForCurrentCity} from "../../store/getWeather/getWeatherOperati
 import {Simulate} from "react-dom/test-utils";
 import keyDown = Simulate.keyDown;
 import {setCurrentCity} from "../../store/getWeather/getWeatherActions";
+import ClearIcon from '@material-ui/icons/Clear';
+
+
+
 
 export default function SearchComponent(){
     const classes = useStyles();
@@ -23,9 +27,30 @@ export default function SearchComponent(){
 
     const timeoutId = useRef<any>(0)
     const timerForDeactivatingLoading = useRef<any>(0)
+    const wrapperRef = useRef(null);
 
 
+    function useOutsideAlerter(ref:any) {
+        useEffect(() => {
+            /**
+             * Alert if clicked on outside of element
+             */
+            function handleClickOutside(event:any) {
+                if (ref.current && !ref.current.contains(event.target)) {
+                    setNeedToShow(false)
+                }
+            }
+            // Bind the event listener
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                // Unbind the event listener on clean up
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref]);
+    }
+    useOutsideAlerter(wrapperRef);
     useEffect(()=>{
+
 
 
 
@@ -36,27 +61,33 @@ export default function SearchComponent(){
         if(!needToShow)
             setNeedToShow(true)
 
-
         timeoutId.current = setTimeout(()=>{
             dispatch(getListOfCitiesByName(inputPrompts))
-            // clearTimeout(timerForDeactivatingLoading.current)
-            // timerForDeactivatingLoading.current = setTimeout(()=>{
-            //     setIsLoading(false)
-            // }, 300)
+
         }, 250)
 
     }, [inputPrompts])
 
     useEffect(()=>{
         setIsLoading(false)
+        console.log("***CITIES***", cities)
+        if(cities) {
+            console.log(cities.length, currentCity.name === cities[0].name);
+            if (cities.length === 1 && currentCity.name === cities[0].name && cities[0].name === inputPrompts) {
+                console.log(currentCity, cities[0])
+                setNeedToShow(false)
+            }
+        }
     }, [cities])
 
     useEffect(()=>{
-        console.log(currentCity)
+        console.log("***CURRENT CITY: ",currentCity, "***")
         if(currentCity) {
+            console.log("in if condition!")
             dispatch(getWeatherForCurrentCity(currentCity))
             setInputPrompts(currentCity.name)
             setNeedToShow(false)
+            setIsLoading(false)
         }
     }, [currentCity])
 
@@ -66,7 +97,7 @@ export default function SearchComponent(){
         if(event.key === "Enter"){
             dispatch(setCurrentCity(cities[0]))
             setInputPrompts(cities[0].name)
-
+            setNeedToShow(false)
         }
 
     }
@@ -81,12 +112,14 @@ export default function SearchComponent(){
             }} onKeyDown={handleKeyDown}>
 
             </input>
-            <SearchIcon color={"primary"} fontSize={"small"}/>
+            {inputPrompts !== "" ? <ClearIcon style = {{cursor:"pointer"}} color={"primary"} fontSize={"small"} onClick={()=>setInputPrompts("")}/> :
+                <SearchIcon color={"primary"} fontSize={"small"}/>
+            }
         </div>
 
     </div>
         {isLoading?<CircularProgress color="primary" className = {classes.circularProgress} size={30}/>:
-            <div className = {classes.inputHelp}>
+            <div className = {classes.inputHelp} ref={wrapperRef}>
                 {inputPrompts!=="" && needToShow && cities?cities.map((city:CITY)=>(
                     <HelpElement key={city.id}>{{value: city}}</HelpElement>
                 )):null}

@@ -23,11 +23,10 @@ export default function CurrentWeatherComponent(){
             setDate(currentWeather.dt*1000+(currentWeather.timezone*1000))
 
         }
-        console.log(currentWeather.dt)
+
     }, [currentWeather])
 
     useEffect(()=>{
-        console.log(currentCity.city)
         if(currentCity.city)
             setShowPreloader(true)
         else{
@@ -50,15 +49,15 @@ export default function CurrentWeatherComponent(){
                         <div className={classes.containerWithIcon}>
                             {weatherIcon!==""?<img className={classes.weatherIcon} alt={"icon"} src={weatherIcon}/>:<CircularProgress/>}
                             <div className={classes.weatherInfo}>
-                                <span className={"mainTemperature"}>{Math.floor(currentWeather.main.temp)}</span>
+                                <span className={"mainTemperature"}>{`${Math.floor(currentWeather.main.temp)}℃`}</span>
                                 <span className={"weatherType"}>{currentWeather.weather[0].main}</span>
-                                <span className={"minMaxTemperature"}>{`${Math.floor(currentWeather.main.temp_min)} / ${Math.floor(currentWeather.main.temp_max)}`}</span>
+                                <span className={"minMaxTemperature"}>{`${Math.floor(currentWeather.main.temp_min)}℃ / ${Math.floor(currentWeather.main.temp_max)}℃`}</span>
                             </div>
                         </div>
                 </div>
 
                 <div className={classes.additionalInfo}>
-                    <AdditionalInfoBoxComponent>{{name:"Feels like", value: Math.floor(currentWeather.main.feels_like)}}</AdditionalInfoBoxComponent>
+                    <AdditionalInfoBoxComponent>{{name:"Feels like", value: `${Math.floor(currentWeather.main.feels_like)}℃`}}</AdditionalInfoBoxComponent>
                     <AdditionalInfoBoxComponent>{{name: "Humidity", value: currentWeather.main.humidity}}</AdditionalInfoBoxComponent>
                     <AdditionalInfoBoxComponent>{{name: "Pressure", value: currentWeather.main.pressure}}</AdditionalInfoBoxComponent>
                 </div>
