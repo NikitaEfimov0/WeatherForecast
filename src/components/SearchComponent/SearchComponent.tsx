@@ -72,7 +72,7 @@ export default function SearchComponent(){
         setIsLoading(false)
         console.log("***CITIES***", cities)
         if(cities) {
-            console.log(cities.length, currentCity.name === cities[0].name);
+            // console.log(cities.length, currentCity.name === cities[0].name);
             if (cities.length === 1 && currentCity.name === cities[0].name && cities[0].name === inputPrompts) {
                 console.log(currentCity, cities[0])
                 setNeedToShow(false)
